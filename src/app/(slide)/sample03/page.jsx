@@ -15,7 +15,7 @@ export default function Page() {
     create.ambientLight();
     create.directionalLight();
 
-    const bg = load.background("hdr/sky.hdr");
+    const bg = load.background("../hdr/sky.hdr");
 
     camera.position.set(0, 6, 10);
     controls.target.set(0, 1, 0);
@@ -24,23 +24,22 @@ export default function Page() {
       size: 10,
       rotation: [-Math.PI / 2, 0, 0],
       option: {
-        map: load.texture("textures/rocky_terrain_02_diff_1k.jpg"),
-        normalMap: load.texture("textures/rocky_terrain_02_nor_gl_1k.jpg"),
-      }
-    })
+        map: load.texture("../textures/rocky_terrain_02_diff_1k.jpg"),
+        normalMap: load.texture("../textures/rocky_terrain_02_nor_gl_1k.jpg"),
+      },
+    });
     const ball = create.sphere({
       position: [0, 6, 0],
       option: {
-        map: load.texture("textures/aerial_rocks_04_diff_1k.jpg"),
-        normalMap: load.texture("textures/aerial_rocks_04_nor_gl_1k.jpg"),
-      }
+        map: load.texture("../textures/aerial_rocks_04_diff_1k.jpg"),
+        normalMap: load.texture("../textures/aerial_rocks_04_nor_gl_1k.jpg"),
+      },
     });
     let vy = 0.0;
     const g = -9.8;
 
     animate(({ delta }) => {
       if (delta < 0.1) {
-        // free fall and bounce
         vy += delta * g
         ball.position.y += delta * vy;
         if (ball.position.y < 1) {
@@ -105,25 +104,28 @@ export default function Page() {
             }}
           >
             <SyntaxHighlighter style={docco} language="javascript">
-              {`const { create, camera, controls, animate } = init();
+              {`// 地面を作成
+  const ground = create.plane({
+    size: 10,
+    rotation: [-Math.PI / 2, 0, 0],
+  });
+  // ボールを作成
+  const ball = create.sphere({
+    position: [0, 6, 0],
+  });
 
-  // カメラ操作ON
-  controls.connect();
+  let vy = 0.0;
+  const g = -9.8;
 
-  // 環境光と平行光源を追加
-  create.ambientLight();
-  create.directionalLight();
-
-  // カメラ位置を設定
-  camera.position.set(0, 0, 5);
-
-  // キューブを作成
-  const cube = create.cube();
-
-  // アニメーションを設定
   animate(({ delta }) => {
-    cube.rotation.x += delta * 0.5;
-    cube.rotation.y += delta * 0.5;
+    if (delta < 0.1) {
+      vy += delta * g
+      ball.position.y += delta * vy;
+      if (ball.position.y < 1) {
+        vy = -vy;
+        ball.position.y = 1;
+      }
+    }
   });`}
             </SyntaxHighlighter>
           </div>

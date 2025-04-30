@@ -12,7 +12,7 @@ export default function Page() {
     create.ambientLight();
     create.directionalLight();
     camera.position.set(0, 0, 5);
-    load.background("hdr/sky.hdr")
+    load.background("../hdr/sky.hdr")
     const cubeNum = 6;
     create.sphere({
       size: 1,

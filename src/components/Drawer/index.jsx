@@ -25,6 +25,7 @@ export default function Component({ page, setPage, children }) {
               fontSize: "min(1.5rem, 20pt)",
               width: "min(3rem, 40pt)",
               height: "min(3rem, 40pt)",
+              zIndex: "999",
             }}
           >
             <IoMenu />
