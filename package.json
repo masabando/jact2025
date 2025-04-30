@@ -1,23 +1,31 @@
 {
   "name": "jact2025",
+  "homepage": "https://masabando.github.io/jact2025",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "deploy": "npm run build && gh-pages -d out -m 'Deploy to GitHub Pages'",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@masabando/easy-three": "^1.5.2",
+    "gh-pages": "^6.3.0",
+    "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.1"
+    "react-icons": "^5.5.0",
+    "react-syntax-highlighter": "^15.6.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "daisyui": "^5.0.28",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
-    "@eslint/eslintrc": "^3"
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4"
   }
 }

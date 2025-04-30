@@ -1,26 +1,26 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+};
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --title-size: 1.3rem;
+  --text-size: 1rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-size: calc(min(100vw, 100svh * 4 / 3) * 0.04);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  font-size: var(--text-size);
+}
+
+h1 {
+  font-size: var(--title-size);
+}
+
+.mockup-code::before {
+  margin-bottom: 0.5rem;
 }
