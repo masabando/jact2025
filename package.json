@@ -1,7 +1,7 @@
 {
   "name": "jact2025",
   "homepage": "https://masabando.github.io/jact2025",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "deploy": "npm run build && gh-pages -d out -m 'Deploy to GitHub Pages'",
